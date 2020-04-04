@@ -9,32 +9,29 @@ const option0: InferenceSession.SessionOptions = {};
 
 // one execution provider option can be a string or an object with more details
 const option1_0: InferenceSession.SessionOptions = {
-    executionProviders: ['cpu']
+  executionProviders: ['cpu']
 };
 const option1_1: InferenceSession.SessionOptions = {
-    executionProviders: ['cuda', 'cpu']
+  executionProviders: ['cuda', 'cpu']
 };
 const option1_2: InferenceSession.SessionOptions = {
-    executionProviders: [
-        { name: 'cuda', deviceId: 0 },
-        { name: 'cpu' }
-    ]
+  executionProviders: [{name: 'cuda', deviceId: 0}, {name: 'cpu'}]
 };
 
 // various of flags and settings
 const option3: InferenceSession.SessionOptions = {
-    enableCpuMemArena: true,
-    enableMemPattern: true,
-    intraOpNumThreads: 4,
-    interOpNumThreads: 2
+  enableCpuMemArena: true,
+  enableMemPattern: true,
+  intraOpNumThreads: 4,
+  interOpNumThreads: 2
 };
 
 // graph optimization level
 const option4: InferenceSession.SessionOptions = {
-    graphOptimizationLevel: 'extended'
+  graphOptimizationLevel: 'extended'
 };
 
 // execution mode
 const option5: InferenceSession.SessionOptions = {
-    executionMode: 'sequential'
+  executionMode: 'sequential'
 };

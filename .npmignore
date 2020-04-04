@@ -7,9 +7,6 @@
 /src/
 /test/
 
-/types/**/*.d.ts
-!/types/lib/index.d.ts
-
 /lib/**/*.ts
 /lib/**/*.js.map
 
