@@ -25,7 +25,7 @@ import {InferenceSession, OnnxValue, Tensor, TypedTensor} from '../lib';
       // NOTE: following codes are demonstration of overrides. should not call loadModel() multiple times
 
       // load from file
-      await mySession.loadModel('C:\\models\\test.onnx');
+      await mySession.loadModel('C:\\my_model.onnx');
 
       // OR load from an array buffer
       const someBuffer = new ArrayBuffer(100000);  // suppose its content is filled

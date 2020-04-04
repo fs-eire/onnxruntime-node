@@ -1,7 +1,7 @@
 {
   "name": "onnxruntime",
   "description": "Node.js binding of ONNXRuntime",
-  "version": "0.0,1",
+  "version": "0.0.1",
   "main": "./lib/index.js",
   "types": "./types/index.d.ts",
   "scripts": {

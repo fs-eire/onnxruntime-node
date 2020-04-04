@@ -195,17 +195,21 @@ export declare namespace InferenceSession {
   export namespace SessionOptions {
     //#region execution providers
 
-    // currently we only have CPU and CUDA EP. in future to support more.
+    // currently we only have CPU, DNNL and CUDA EP. in future to support more.
+    interface ExecutionProviderOptionMap {
+      cpu: CpuExecutionProviderOption, cuda: CudaExecutionProviderOption
+    }
 
-    type ExecutionProviderName = 'cpu'|'cuda';
-    type ExecutionProviderConfig = CpuExecutionProviderOption|CudaExecutionProviderOption|ExecutionProviderName;
+    type ExecutionProviderName = keyof ExecutionProviderOptionMap;
+    type ExecutionProviderConfig = ExecutionProviderOptionMap[ExecutionProviderName]|ExecutionProviderName;
 
     export interface CpuExecutionProviderOption {
       readonly name: 'cpu';
+      useArena?: boolean;
     }
     export interface CudaExecutionProviderOption {
       readonly name: 'cuda';
-      deviceId: number;
+      deviceId?: number;
     }
     //#endregion execution providers
   }

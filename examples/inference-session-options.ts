@@ -17,6 +17,9 @@ const option1_1: InferenceSession.SessionOptions = {
 const option1_2: InferenceSession.SessionOptions = {
   executionProviders: [{name: 'cuda', deviceId: 0}, {name: 'cpu'}]
 };
+const option1_3: InferenceSession.SessionOptions = {
+  executionProviders: [{name: 'cuda', deviceId: 0}, 'cpu']
+};
 
 // various of flags and settings
 const option3: InferenceSession.SessionOptions = {
