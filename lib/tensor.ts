@@ -97,8 +97,75 @@ export declare namespace Tensor {
 
 
 export interface TensorConstructor {
-  new<T extends Tensor.Type>(data: Tensor.DataTypeMap[T], type: T, dims?: ReadonlyArray<number>): TypedTensor<T>;
+  /**
+   * Construct a new tensor object from the given type, data and dims.
+   * @type Specify the element type.
+   * @data Specify the tensor data
+   * @dims Specify the dimension of the tensor. If omitted, a 1-D tensor is assumed.
+   */
+  new<T extends Tensor.Type>(
+      type: T, data: Tensor.DataTypeMap[T]|ReadonlyArray<Tensor.ElementTypeMap[T]>,
+      dims?: ReadonlyArray<number>): TypedTensor<T>;
+
+  //#region infer element types
+
+  /**
+   * Construct a new float32 tensor object from the given data and dims.
+   */
+  new(data: Float32Array, dims?: ReadonlyArray<number>): TypedTensor<'float32'>;
+
+  /**
+   * Construct a new int8 tensor object from the given data and dims.
+   */
+  new(data: Int8Array, dims?: ReadonlyArray<number>): TypedTensor<'int8'>;
+
+  /**
+   * Construct a new uint16 tensor object from the given data and dims.
+   */
+  new(data: Uint16Array, dims?: ReadonlyArray<number>): TypedTensor<'uint16'>;
+
+  /**
+   * Construct a new int16 tensor object from the given data and dims.
+   */
+  new(data: Int16Array, dims?: ReadonlyArray<number>): TypedTensor<'int16'>;
+
+  /**
+   * Construct a new int32 tensor object from the given data and dims.
+   */
+  new(data: Int32Array, dims?: ReadonlyArray<number>): TypedTensor<'int32'>;
+
+  /**
+   * Construct a new int64 tensor object from the given data and dims.
+   */
+  new(data: BigInt64Array, dims?: ReadonlyArray<number>): TypedTensor<'int64'>;
+
+  /**
+   * Construct a new string tensor object from the given data and dims.
+   */
+  new(data: ReadonlyArray<string>, dims?: ReadonlyArray<number>): TypedTensor<'string'>;
+
+  /**
+   * Construct a new bool tensor object from the given data and dims.
+   */
+  new(data: ReadonlyArray<boolean>, dims?: ReadonlyArray<number>): TypedTensor<'bool'>;
+
+  /**
+   * Construct a new float64 tensor object from the given data and dims.
+   */
+  new(data: Float64Array, dims?: ReadonlyArray<number>): TypedTensor<'float64'>;
+
+  /**
+   * Construct a new uint32 tensor object from the given data and dims.
+   */
+  new(data: Uint32Array, dims?: ReadonlyArray<number>): TypedTensor<'uint32'>;
+
+  /**
+   * Construct a new uint64 tensor object from the given data and dims.
+   */
+  new(data: BigUint64Array, dims?: ReadonlyArray<number>): TypedTensor<'uint64'>;
+
+  //#endregion infer element types
 }
 
 // TBD: not implemented yet, use trick to make TypeScript compiler happy
-export const Tensor: TensorConstructor = {} as unknown as TensorConstructor;
+export const Tensor: TensorConstructor = {} as TensorConstructor;
